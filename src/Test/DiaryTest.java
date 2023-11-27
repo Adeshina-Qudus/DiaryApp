@@ -5,6 +5,8 @@ import Entry.Entry;
 import org.junit.jupiter.api.Test;
 import Exception.IncorrectPasswordException;
 
+import Exception.InvalidIdException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class DiaryTest {
@@ -47,7 +49,7 @@ class DiaryTest {
         assertEquals(1,diary.numberEntry());
     }
     @Test
-    public void findDiaryEntryTest(){
+    public void findDiaryEntryByIDTest(){
         Diary diary = new Diary("jumoke ","pin");
         diary.createEntry("my_guy","body");
         diary.createEntry("title","body");
@@ -55,6 +57,13 @@ class DiaryTest {
         Entry entry2 = diary.findEntryByID(2);
         assertEquals(entry, diary.findEntryByID(1));
         assertEquals(entry2, diary.findEntryByID(2));
+    }
+    @Test
+    public void findDiaryEntryWithWrongIDTest(){
+        Diary diary = new Diary("jumoke ","pin");
+        diary.createEntry("my_guy","body");
+        diary.createEntry("title","body");
+        assertThrows(InvalidIdException.class, () -> diary.findEntryByID(3));
     }
     @Test
     public void deleteEntryTest(){

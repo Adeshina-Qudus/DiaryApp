@@ -31,6 +31,7 @@ public class Diaries {
 
     public void delete(String username, String password) {
         Diary diary = findByUsername(username);
+
         for (Diary diary1 : diaries){
             if (diary.equals(diary1)){
                 diaries.remove(diary);

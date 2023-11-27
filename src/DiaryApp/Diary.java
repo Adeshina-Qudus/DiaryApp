@@ -2,6 +2,7 @@ package DiaryApp;
 
 import Entry.Entry;
 import Exception.IncorrectPasswordException;
+import Exception.InvalidIdException;
 
 import java.util.ArrayList;
 
@@ -50,6 +51,7 @@ public class Diary {
     }
 
     public Entry findEntryByID(int id) {
+        validateID(id);
         for (Entry entry : entries){
             if (entry.getId() == id){
                 return entry;
@@ -57,7 +59,13 @@ public class Diary {
         }
         return null;
     }
-
+    public void validateID(int id){
+        for (Entry entry : entries) {
+            if (entry.getId() != id) {
+                throw new InvalidIdException("ID doesn't exist ");
+            }
+        }
+    }
     public void deleteEntry(int id) {
         Entry entry = findEntryByID(id);
         entries.remove(entry);
