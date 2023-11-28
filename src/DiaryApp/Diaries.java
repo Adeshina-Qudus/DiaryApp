@@ -29,9 +29,9 @@ public class Diaries {
         return null;
     }
 
-    public void delete(String username, String password) {
+    public void delete(String username, String password){
         Diary diary = findByUsername(username);
-
+        diary.validatePassword(password);
         for (Diary diary1 : diaries){
             if (diary.equals(diary1)){
                 diaries.remove(diary);
@@ -39,4 +39,5 @@ public class Diaries {
             }
         }
     }
+
 }

@@ -6,7 +6,7 @@ public class DiaryMain {
 
     private static Diary diary;
     public static void main(String[] args) {
-mainMenu();
+      mainMenu();
     }
 
     public static void displayMenu(){
@@ -20,7 +20,6 @@ mainMenu();
            5. find Entry By ID
            6. Delete Entry
            7. Update Entry
-          
            +++++++++++++++++++++++++++++++
            ===============================
                 """);
@@ -47,7 +46,6 @@ mainMenu();
                 System.exit(0);
         }
     }
-
     public static void createDiary(){
         String userName = input("Enter Username");
         String password = input("Enter Password ");
